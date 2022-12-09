@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <LangVersion>10</LangVersion>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <PackageId>PivotPad</PackageId>
     <Authors>Niels Bosma</Authors>
     <Description>A pivot extension for LINQPad.</Description>
@@ -14,6 +14,10 @@
   <ItemGroup>
     <PackageReference Include="LINQPad.Runtime" Version="6.14.10" />
     <PackageReference Include="System.Text.Json" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="linqpad-samples\**" Pack="True" PackagePath="linqpad-samples\"/>
   </ItemGroup>
 
 </Project>
