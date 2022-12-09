@@ -6,18 +6,18 @@ namespace PivotPad;
 
 public class CsvServer
 {
-    private readonly int _port;
+    private readonly string _url;
 
-    public CsvServer(int port)
+    public CsvServer(string url)
     {
-        _port = port;
+        _url = url;
     }
-    
-    private async Task Serve(string csv)
+
+    public async Task Serve(string csv)
     {
         var listener = new HttpListener();
         listener.AuthenticationSchemes = AuthenticationSchemes.Anonymous;
-        listener.Prefixes.Add($"http://localhost:{_port}/");
+        listener.Prefixes.Add(_url);
         listener.Start();
 
         HttpListenerContext ctx = await listener.GetContextAsync();

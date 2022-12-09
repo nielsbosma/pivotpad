@@ -6,3 +6,4 @@
 * Sort
 * Row&Column sorting
 * Drills
+* Linqad examples

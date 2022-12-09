@@ -1,4 +1,6 @@
-﻿namespace PivotPad;
+﻿using System.ComponentModel;
+
+namespace PivotPad;
 
 public enum PivotTheme
 {

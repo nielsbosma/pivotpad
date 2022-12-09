@@ -11,15 +11,4 @@ public class PivotField
     public string Caption { get; set; }
 	
     public PivotSort Sort { get; set; } = PivotSort.Unsorted;
-	
-    //Filter?
-
-    public JsonObject ToJson()
-    {
-        return new JsonObject(new[] {
-            KeyValuePair.Create<string, JsonNode>("uniqueName", UniqueName),
-            KeyValuePair.Create<string, JsonNode>("caption", Caption??UniqueName),
-            KeyValuePair.Create<string, JsonNode>("sort", Sort.ToString().ToLower()),
-        });
-    }
 }
