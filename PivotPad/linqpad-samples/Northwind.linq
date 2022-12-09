@@ -1,6 +1,6 @@
 <Query Kind="Statements">
-  <Reference>C:\Repos\pivotpad\PivotPad\bin\Debug\net5.0\PivotPad.dll</Reference>
   <NuGetReference>NorthwindEFCore</NuGetReference>
+  <NuGetReference>PivotPad</NuGetReference>
   <Namespace>Microsoft.EntityFrameworkCore</Namespace>
   <Namespace>NorthwindEFCore</Namespace>
   <Namespace>PivotPad</Namespace>
@@ -21,6 +21,9 @@ using (var db = new NorthwindDbContext(config.Options))
 		Region = e.Customer.Region,
 		TotalAmount = e.OrderDetails.Sum(e => e.UnitPrice * e.Quantity)
 	});
+	
+	
+	
 	data.Pivot(e => 
 		e
 			.Column(f => f.Employee)

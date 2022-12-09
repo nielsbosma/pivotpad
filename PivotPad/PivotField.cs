@@ -11,4 +11,6 @@ public class PivotField
     public string Caption { get; set; }
 	
     public PivotSort Sort { get; set; } = PivotSort.Unsorted;
+
+    public string Segment { get; set; } = null;
 }

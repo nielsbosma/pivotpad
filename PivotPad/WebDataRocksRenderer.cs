@@ -23,8 +23,7 @@ public class WebDataRocksRenderer : IPivotRenderer
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title></title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-	<!--<link rel='stylesheet' type='text/css' href='https://cdn.webdatarocks.com/latest/theme/stripedblue/webdatarocks.min.css'/>-->
-	<link href='https://cdn.webdatarocks.com/latest/webdatarocks.min.css' rel='stylesheet'/>
+	<link href='{Utils.GetDescriptionFromEnum(report.Theme)}' rel='stylesheet'/>
     <script src='https://cdn.webdatarocks.com/latest/webdatarocks.toolbar.min.js'></script>
     <script src='https://cdn.webdatarocks.com/latest/webdatarocks.js'></script>
     <style>
@@ -68,11 +67,19 @@ function customizeToolbar(toolbar) {{
     var tabs = toolbar.getTabs(); 
     toolbar.getTabs = function() {{
         delete tabs[0]; 
-        //delete tabs[1];
-        //delete tabs[2];
+        tabs.push({{
+            id: 'wdr-tab-feedback',
+            title: 'Github',
+            handler: handlerFeedback,
+            icon: this.icons.options
+        }});
         return tabs;
     }}
 }}
+var handlerFeedback = function() {{
+    window.open('https://bit.ly/pivotpad');
+}};
+
 </script>
 </body>
 </html>		
@@ -90,9 +97,38 @@ function customizeToolbar(toolbar) {{
     private JsonObject ToJson(PivotField field)
     {
         return new JsonObject(new[] {
-            KeyValuePair.Create<string, JsonNode>("uniqueName", field.UniqueName),
+            KeyValuePair.Create<string, JsonNode>("uniqueName", field.UniqueName + (field.Segment != null ? "." + field.Segment : "")),
             KeyValuePair.Create<string, JsonNode>("caption", field.Caption??field.UniqueName),
             KeyValuePair.Create<string, JsonNode>("sort", field.Sort.ToString().ToLower()),
         });
+    }
+    
+    private JsonArray ToJson(IEnumerable<PivotMeasure> fields)
+    {
+        return new JsonArray(fields.Select(ToJson).ToArray());
+    }
+    
+    private JsonObject ToJson(PivotMeasure field)
+    {
+        var pairs = new List<KeyValuePair<string, JsonNode>>(new[]
+        {
+            KeyValuePair.Create<string, JsonNode>("uniqueName", field.UniqueName),
+            KeyValuePair.Create<string, JsonNode>("caption", field.Caption ?? field.UniqueName),
+            KeyValuePair.Create<string, JsonNode>("aggregation", Utils.GetDescriptionFromEnum(field.Aggregation)),
+            KeyValuePair.Create<string, JsonNode>("active", field.Active),
+            KeyValuePair.Create<string, JsonNode>("individual", field.Individual)
+        });
+
+        if (!string.IsNullOrEmpty(field.GrandTotalCaption))
+        {
+            pairs.Add(KeyValuePair.Create<string, JsonNode>("grandTotalCaption", field.GrandTotalCaption));
+        }
+        
+        if (!string.IsNullOrEmpty(field.Formula))
+        {
+            pairs.Add(KeyValuePair.Create<string, JsonNode>("formula", field.Formula));
+        }
+        
+        return new JsonObject(pairs);
     }
 }

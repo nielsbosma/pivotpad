@@ -8,7 +8,7 @@ public class PivotReport
 	
     public List<PivotField> Columns { get; } = new();
 	
-    public List<PivotField> Measures { get; } = new();
+    public List<PivotMeasure> Measures { get; } = new();
 	
     public List<PivotField> Filters { get; } = new();
     
