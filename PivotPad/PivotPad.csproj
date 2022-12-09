@@ -1,9 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <LangVersion>10</LangVersion>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
+    <PackageId>PivotPad</PackageId>
+    <Authors>Niels Bosma</Authors>
+    <Description>A pivot extension for LINQPad.</Description>
+    <RepositoryUrl>https://github.com/nielsbosma/pivotpad</RepositoryUrl>
+    <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
   </PropertyGroup>
 
   <ItemGroup>
