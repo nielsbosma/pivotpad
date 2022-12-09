@@ -1,2 +1,4 @@
 ﻿PivotPad/bin/*
 PivotPad/obj/*
+.git/*
+.idea/*
