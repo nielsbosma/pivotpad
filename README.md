@@ -1,2 +1,2 @@
-# pivotpad
-Pivot extension for LinqPad. 
+# PivotPad
+Pivot extension for LINQPad. 
