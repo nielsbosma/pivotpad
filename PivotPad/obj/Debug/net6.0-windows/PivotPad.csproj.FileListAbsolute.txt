@@ -1,5 +1,0 @@
-C:\Repos\pivotpad\PivotPad\obj\Debug\net6.0-windows\PivotPad.csproj.AssemblyReference.cache
-C:\Repos\pivotpad\PivotPad\obj\Debug\net6.0-windows\PivotPad.GeneratedMSBuildEditorConfig.editorconfig
-C:\Repos\pivotpad\PivotPad\obj\Debug\net6.0-windows\PivotPad.AssemblyInfoInputs.cache
-C:\Repos\pivotpad\PivotPad\obj\Debug\net6.0-windows\PivotPad.AssemblyInfo.cs
-C:\Repos\pivotpad\PivotPad\obj\Debug\net6.0-windows\PivotPad.csproj.CoreCompileInputs.cache
