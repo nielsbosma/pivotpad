@@ -18,3 +18,5 @@ Example:
             .DateRow(f => f.OrderDate, PivotDatePart.Year|PivotDatePart.Month|PivotDatePart.Day)
             .Measure(f => f.TotalAmount, PivotAggregation.Sum)
 	);
+
+Uses https://www.webdatarocks.com/ for the pivot table. 
